@@ -10,8 +10,8 @@ public class MapState extends State {
 
 	public MapState(Handler handler, int nr) {
 		super(handler);
-		
-		//set title
+
+		// set title
 		handler.getDisplay().setTitle(Assets.mapNames[nr]);
 
 		// create map object
@@ -46,6 +46,11 @@ public class MapState extends State {
 	@Override
 	public void tick() {
 		uiManager.tick();
+
+		if (handler.getKeyManager().escape) {
+			handler.getMouseManager().setUIManager(null);
+			State.setState(new MenuState(handler));
+		}
 	}
 
 	@Override

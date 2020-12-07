@@ -21,6 +21,70 @@ public class Assets {
 			{"Launchpad", "Reactor", "Laboratory", "Locker Room", "Hallway", "Communications", "Med Bay", "Greenhouse", "Office", "Admin", "Storage", "Balcony", "Cafeteria"},
 			{"O2", "O2", "Boiler Room", "O2", "Security", "Electrical", "Electrical", "Outside", "Outside", "Outside", "Communications", "Weapons", "Outside", "Outside", "Dropship", "Storage", "Office", "Admin", "Office", "Outside", "Laboratory", "Outside", "Laboratory", "Laboratory", "Laboratory / Decontamination", "Specimen Room"},
 	};
+	public static String[][][] taskNames = { 
+			//skeld
+			{
+				{"Unlock Manifolds", "Start Reactor", "Divert Power"}, //Reactor
+		    	{"Align Engine Output", "Fuel Engines", "Accept Diverted Power"}, //Upper Engine
+		    	{"Align Engine Output", "Fuel Engines", "Accept Diverted Power"}, //Lower Engine
+		    	{"Fix Wiring", "Accept Diverted Power"}, //Security
+		    	{"Submit Scan", "Inspect Sample"}, //Medbay
+		    	{"Download / Upload Data", "Divert Power", "Fix Wiring", "Calibrate Distributor"}, //Electrical
+		    	{"Fix Wiring", "Download / Upload Data", "Empty Chute / Garbage"}, //Cafeteria
+		    	{"Fuel Engines", "Fix Wiring", "Empty Chute / Garbage"}, //Storage
+		    	{"Fix Wiring", "Download / Upload Data", "Swipe Card"}, //Admin
+		    	{"Download / Upload Data", "Accept Diverted Power"}, //Communication
+		    	{"Empty Chute / Garbage", "Clean O2 Filter", "Accept Diverted Power"}, //O2
+		    	{"Download / Upload Data", "Clear Asteroids","Accept Diverted Power"}, //Weapons
+		    	{"Prime Shields", "Accept Diverted Power"}, //Shields
+		    	{"Fix Wiring", "Divert Power", "Download / Upload Data", "Chart Course", "Stabilize Steering"}, //Navigation
+			},
+			//mirahq
+			{
+				{"Fuel Engines", "Accept Diverted Power", "Run Diagnostics"}, //Launchpad
+		    	{"Unlock Manifolds", "Divert Power", "Start Reactor"}, //Reactor
+		    	{"Fix Wiring", "Accept Diverted Power", "Assemble Artifact", "SortSamples"}, //Laboratory
+		    	{"Fix Wiring"}, //Locker Room
+		    	{"Fix Wiring"}, //Hallway
+		    	{"Accept Diverted Power"}, //Communications
+		    	{"Accept Diverted Power", "Submit Scan"}, //Medbay
+		    	{"Accept Diverted Power", "Clean O2 Filter", "Fix Wiring", "Water Plants (2)"}, //Greenhouse
+		    	{"Process Data", "Accept Diverted Power"}, //Office
+		    	{"Enter ID Code", "Accept Diverted Power", "Prime Shields", "Chart Course"}, //Admin
+		    	{"Water Plants (1)", "Fix Wiring"}, //Storage
+		    	{"Clear Asteroids", "Measure Weather"}, //Balcony
+		    	{"Accept Diverted Power", "Empty Chute / Garbage", "Buy Beverage"} //Cafeteria
+			},
+			//polus
+			{
+				{"Monitor Tree", "Download / Upload Data"}, //O2Tree
+		    	{"Fill Canisters"}, //O2Water
+		    	{"Replace Water Jug", "Open Waterways", "Open Waterways"}, //Boiler Room
+		    	{"Empty Chute / Garbage", "Fix Wiring"}, //O2Hallway
+		    	{}, //Security
+		    	{"Fix Wiring", "Download / Upload Data"}, //Electrical Hallway
+		    	{}, //Electrical Outside
+		    	{"Fix Weather Nodes (1)"}, //Outside 1
+		    	{"Fix Weather Nodes (1)"}, //Outside 2
+		    	{"Fuel Engines"}, //Outside 3
+		    	{"Reboot Wifi", "Download / Upload Data"}, //Communications
+		    	{"Clear Asteroids", "Download / Upload Data"}, //Weapons
+		    	{"Fix Weather Nodes (1)"}, //Outside 4
+		    	{"Fix Weather Nodes (1)", "Open Waterways"}, //Outside 5
+		    	{"Chart Course", "Insert Keys"}, //Dropship
+		    	{"Fuel Engines"}, //Storage
+		    	{"Fix Wiring", "Replace Water Jug"}, //Office Left
+		    	{}, //Admin
+		    	{"Swipe Card", "Scan Boarding Pass", "Download / Upload Data"}, //Office Right
+		    	{"Fuel Engines", "Fix Weather Nodes (1)"}, //Outside 6
+		    	{"Repair Drill"}, //Laboratory Outside
+		    	{"Fix Weather Nodes (1)", "Record Temperature"}, //Outside 7
+		    	{"Fix Weather Nodes (2)", "Record Temperature"}, //Laboratory Left
+		    	{"Align Telescope", "Inspect Sample", "Submit Scan"}, //Laboratory Right
+		    	{"Fix Wiring", "Fix Wiring", "Fix Wiring"}, //Laboratory Hallway
+		    	{"Unlock Manifolds", "Start Reactor", "Store Artifacts", "Download / Upload Data"} //Specimen Room
+			}
+	};
 	
 	//layers: map - room - x/y
 	public static int[][][][] roomCoordinates = {

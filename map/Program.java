@@ -12,37 +12,42 @@ public class Program implements Runnable {
 
 	private Display display;
 	private String title;
-	private int width = (1024-14);
-	private int height = (768-77);
+	private int width = (1024 - 14);
+	private int height = (768 - 77);
 
 	private BufferStrategy bs;
 	private Graphics g;
 
 	// Input
 	private MouseManager mouseManager;
+	private KeyManager keyManager;
 
 	// Handler
 	private Handler handler;
-	
+
 	public Program(String title) {
 		this.title = title;
+		keyManager = new KeyManager();
 	}
 
 	private void init() {
 		display = new Display(title, width, height);
 		mouseManager = new MouseManager();
 		handler = new Handler(this, display);
+		display.getFrame().addKeyListener(keyManager);
 		display.getFrame().addMouseListener(mouseManager);
 		display.getFrame().addMouseMotionListener(mouseManager);
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
-		
+
 		Assets.init();
 
 		State.setState(new MenuState(handler));
 	}
 
 	private void tick() {
+		keyManager.tick();
+		
 		if (State.getState() != null)
 			State.getState().tick();
 	}
@@ -52,7 +57,7 @@ public class Program implements Runnable {
 		if ((display.getWidth() != width) || (display.getHeight() != height)) {
 			width = display.getWidth();
 			height = display.getHeight();
-			// print width and height
+			// print new width and height
 			System.out.println("Width: " + width + "   Height: " + height);
 		}
 
@@ -64,14 +69,11 @@ public class Program implements Runnable {
 		g = bs.getDrawGraphics();
 		// Clear Screen
 		g.clearRect(0, 0, width, height);
-		
-		// Draw Here!
 
+		// draw
 		if (State.getState() != null)
 			State.getState().render(g);
 
-		// End Drawing!
-		
 		bs.show();
 		g.dispose();
 	}
@@ -134,6 +136,10 @@ public class Program implements Runnable {
 	public MouseManager getMouseManager() {
 		return mouseManager;
 	}
+	
+	public KeyManager getKeyManager() {
+		return keyManager;
+	}
 
 	public int getWidth() {
 		return width;
@@ -142,7 +148,7 @@ public class Program implements Runnable {
 	public int getHeight() {
 		return height;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}

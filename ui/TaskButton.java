@@ -4,7 +4,6 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import javafx.scene.shape.Circle;
 import map.Assets;
 import map.Handler;
 
@@ -43,7 +42,10 @@ public class TaskButton extends UIObject {
 		g.drawImage(Assets.task, (int) (x - radius), (int) (y - radius), (int) (2*radius), (int) (2*radius), null);
 		
 		if (hovering) {
-			//draw image of the task
+			// write name of task in the title
+			handler.getDisplay().setTitle(Assets.taskNames[mapNr][roomNr][taskNr]);
+			
+			// draw image of the task
 			BufferedImage img = Assets.tasks[mapNr][roomNr][taskNr];
 			int taskHeight = (int) (handler.getHeight() * 0.7f);
 			int taskWidth = (int) (handler.getWidth() * 0.7f);
